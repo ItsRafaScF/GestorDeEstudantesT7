@@ -48,6 +48,8 @@ namespace GestorDeEstudantesT7
 
         private void gerenciarAlunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FormGerenciarAlunos formGerenciarAlunos = new FormGerenciarAlunos();
+            formGerenciarAlunos.Show(this);
 
         }
 
