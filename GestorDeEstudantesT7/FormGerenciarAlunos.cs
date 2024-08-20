@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,9 @@ namespace GestorDeEstudantesT7
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            string pesquisa = "SELECT * FROM `estudantes` WHERE CONCAT(`nome`,`sobrenome`,`endereco`) LIKE `&\"\"&`";
+            MySqlCommand comando = new MySqlCommand(pesquisa);
+            preencheTabela(comando);
         }
 
         Estudante estudante = new Estudante();
@@ -103,6 +106,28 @@ namespace GestorDeEstudantesT7
             radioButtonFeminino.Checked = true;
             dateTimePickerNascimento.Value = DateTime.Now;
             pictureBoxFoto.Image = null;
+        }
+
+        private void buttonEnviarFoto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBaixarFoto_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog salvarArquivo = new SaveFileDialog();
+            // define o nome do arquivo que sera salvo
+            salvarArquivo.FileName = "Estudante_" + textBoxID.Text;
+
+            //verifica se tem imagem na caixa de imagem 
+            if (pictureBoxFoto.Image == null)
+            {
+                MessageBox.Show("Não tem foto para baixar.");
+            }
+            else
+            {
+                pictureBoxFoto.Image.Save(salvarArquivo.FileName + ("." + ImageFormat.Jpeg.ToString()));
+            }
         }
     }
 }

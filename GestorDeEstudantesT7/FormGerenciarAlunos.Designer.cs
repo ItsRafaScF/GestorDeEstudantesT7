@@ -74,6 +74,7 @@
             this.buttonBaixarFoto.TabIndex = 49;
             this.buttonBaixarFoto.Text = "Baixar Foto";
             this.buttonBaixarFoto.UseVisualStyleBackColor = true;
+            this.buttonBaixarFoto.Click += new System.EventHandler(this.buttonBaixarFoto_Click);
             // 
             // buttonSalvar
             // 
@@ -330,6 +331,7 @@
             this.buttonEnviarFoto.TabIndex = 55;
             this.buttonEnviarFoto.Text = "Enviar Foto";
             this.buttonEnviarFoto.UseVisualStyleBackColor = true;
+            this.buttonEnviarFoto.Click += new System.EventHandler(this.buttonEnviarFoto_Click);
             // 
             // buttonRedefinir
             // 
