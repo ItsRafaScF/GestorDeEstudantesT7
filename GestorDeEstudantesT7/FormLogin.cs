@@ -30,7 +30,7 @@ namespace GestorDeEstudantesT7
 
             MySqlDataAdapter meuAdaptadorSql = new MySqlDataAdapter();
             DataTable tabelaDeDados = new DataTable();
-            MySqlCommand comandoSql = new MySqlCommand("SELECT * FROM `usuarios` WHERE `usuario`= @usuario AND `senha`= @senha", meuBancoDeDados.getConexao);
+            MySqlCommand comandoSql = new MySqlCommand("SELECT * FROM `usuarios` WHERE `nome_de_usuario`= @usuario AND `senha`= @senha", meuBancoDeDados.getConexao);
 
             comandoSql.Parameters.Add("@usuario", MySqlDbType.VarChar).Value = textBoxUsuario.Text;
             comandoSql.Parameters.Add("@senha", MySqlDbType.VarChar).Value = textBoxSenha.Text;

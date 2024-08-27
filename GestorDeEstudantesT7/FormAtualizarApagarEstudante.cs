@@ -91,12 +91,10 @@ namespace GestorDeEstudantesT7
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-           
         }
 
         bool Verificar()
@@ -117,7 +115,7 @@ namespace GestorDeEstudantesT7
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 // Referência a ID do aluno.
                 int idDoAluno = Convert.ToInt32(textBoxID.Text);
@@ -150,10 +148,9 @@ namespace GestorDeEstudantesT7
                     }
                 }
             }
-
             catch
             {
-                MessageBox.Show("Ocorreu um erro.","Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocorreu um erro.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -17,89 +17,96 @@ namespace GestorDeEstudantesT7
             InitializeComponent();
         }
 
+        // Variáveis que SERÃO usadas para guardar as cores dos paineis (panel).
         Color corPainelTotal;
         Color corPainelMeninos;
         Color corPainelMeninas;
 
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void FormEstatisticas_Load(object sender, EventArgs e)
         {
-            corPainelTotal = panelTotaldeEstudantes.BackColor;
+            // GUARDA as cores dos paineis (panel) no momento da inicialização
+            // (não confundir com 'label').
+            corPainelTotal = panelTotalDeEstudantes.BackColor;
             corPainelMeninos = panelMeninos.BackColor;
             corPainelMeninas = panelMeninas.BackColor;
-
-            //Valores (total,geral, total meninos, total meninas
+            
+            // Exibe os valores (total geral, total de meninos, meninas etc)
             Estudante estudante = new Estudante();
-            double totalEsdudantes = 
+            
+            double totalEstudantes = 
                 Convert.ToDouble(estudante.totalDeEstudantes());
-            double totalMeninos =
+            double totalMeninos = 
                 Convert.ToDouble(estudante.totalDeEstudantesMeninos());
-            double totalMeninas =
+            double totalMeninas = 
                 Convert.ToDouble(estudante.totalDeEstudantesMeninas());
 
-            // Contar Porcentagem (%)
+            // Contar a porcentagem (%).
             double porcentagemDeMeninos
-                = totalMeninos * 100 / totalEsdudantes;
+                = totalMeninos * 100 / totalEstudantes;
             double porcentagemDeMeninas
-                = totalMeninas * 100 / totalEsdudantes;
+                = totalMeninas * 100 / totalEstudantes;
 
-            labelTotadeEstudantes.Text = "Total de Estudantes: "
-                + totalEsdudantes.ToString();
-            label2Meninos.Text = "Total de Meninos: "
+            labelTotalDeEstudantes.Text = "Total de Estudantes: "
+                + totalEstudantes.ToString();
+            labelMeninos.Text = "% de Meninos: " 
                 + porcentagemDeMeninos.ToString("0.00") + "%";
-            label3Meninas.Text = "Total de Meninas: "
+            labelMeninas.Text = "% de Meninas: "
                 + porcentagemDeMeninas.ToString("0.00") + "%";
         }
-        private void label1_Click_1(object sender, EventArgs e)
-        {
 
-        }
-        
-        private void labelTotadeEstudantes_MouseLeave(object sender, EventArgs e)
-        {
-            panel1TotaldeAlunos.BackColor = corPainelTotal;
-            labelTotaldeAlunos.ForeColor = Color.Black;
-        }
 
-        private void labelTotaldeAlunos_MouseEnter(object sender, EventArgs e)
-        {
-            panel1TotaldeAlunos.BackColor = Color.Gray;
-            labelTotaldeAlunos.ForeColor = corPainelTotal;
-        }
 
-        private void label2Meninos_MouseEnter(object sender, EventArgs e)
-        {
-            panel2Meninos.BackColor = Color.LightBlue;
-            label2Meninos.ForeColor = corPainelMeninos;
-        }
 
-        private void label2Meninos_MouseLeave(object sender, EventArgs e)
+
+
+
+
+
+
+
+
+
+
+
+
+        private void labelTotalDeEstudantes_MouseEnter(object sender, EventArgs e)
         {
-            panel2Meninos.BackColor = corPainelMeninos;
-            label2Meninos.ForeColor = Color.Black;
+            // Ao passar o mouse sobre o texto, salva altera a cor do PAINEL
+            // para preto e a cor do texto para a cor do PAINEL.
+            panelTotalDeEstudantes.BackColor = Color.Black;
+            labelTotalDeEstudantes.ForeColor = corPainelTotal;
         }
 
-        private void label3Meninas_MouseEnter(object sender, EventArgs e)
+        private void labelTotalDeEstudantes_MouseLeave(object sender, EventArgs e)
         {
-            panel5Meninas.BackColor = Color.Pink;
-            label3Meninas.ForeColor = corPainelMeninos;
+            // Ao tirar o mouse do texto, altera a cor do PAINEL para a cor original
+            // do PAINEL e a cor do texto para a cor preta.
+            panelTotalDeEstudantes.BackColor = corPainelTotal;
+            labelTotalDeEstudantes.ForeColor = Color.Black;
         }
 
-        private void label3Meninas_MouseLeave(object sender, EventArgs e)
+        private void labelMeninos_MouseEnter(object sender, EventArgs e)
         {
-            panel5Meninas.BackColor = corPainelMeninas;
-            label3Meninas.ForeColor = Color.Black;
-
+            panelMeninos.BackColor = Color.Black;
+            labelMeninos.ForeColor = corPainelMeninos;
         }
 
-        private void FormEstatisticas_Load_1(object sender, EventArgs e)
+        private void labelMeninos_MouseLeave(object sender, EventArgs e)
         {
+            panelMeninos.BackColor = corPainelMeninos;
+            labelMeninos.ForeColor = Color.Black;
+        }
 
+        private void labelMeninas_MouseEnter(object sender, EventArgs e)
+        {
+            panelMeninas.BackColor = Color.Black;
+            labelMeninas.ForeColor = corPainelMeninas;
+        }
+
+        private void labelMeninas_MouseLeave(object sender, EventArgs e)
+        {
+            panelMeninas.BackColor = corPainelMeninas;
+            labelMeninas.ForeColor = Color.Black;
         }
     }
 }
